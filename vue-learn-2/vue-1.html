@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>差值表达式：</h1>
+    <h3>{{msg}}</h3>
+    <h3>{{count}}</h3>
+    <h1>v-text</h1>
+    <div v-text="msg"></div>
+    <h1>v-model</h1>
+    <input type="text" name="" id="" v-model="msg">
+    <input type="text" name="" id="" v-model="count">
+  </div>
+
+  <script src="./src/dep.js"></script>
+  <script src="./src/watcher.js"></script>
+  <script src="./src/compiler.js"></script>
+  <script src="./src/observer.js"></script>
+  <script src="./src/vue-1.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        msg: '你好啊！',
+        count: 88,
+        parsen: {
+          name: '山比'
+        }
+      }
+    })
+
+    console.log(vm)
+
+    //   新赋值的msg就不会是响应式数据了
+    // vm.msg = {
+    //   text: '树倒猢狲散。'
+    // }
+
+  </script>
+</body>
+
+</html>

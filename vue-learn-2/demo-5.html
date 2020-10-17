@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">发布订阅模式：模拟自定义事件实现机制</div>
+
+  <script>
+    // 事件触发器
+    class EventEmitter {
+
+      //   定义构造函数
+      constructor() {
+        //   {'click':[fn1, fn2], 'change': [fn1]}
+        this.subs = Object.create(null)
+      }
+
+      // 注册事件
+      $on(eventType, handler) {
+        this.subs[eventType] = this.subs[eventType] || []
+        this.subs[eventType].push(handler)
+      }
+
+      // 触发事件
+      $emit(eventType) {
+        if (this.subs[eventType]) {
+          this.subs[eventType].forEach(handler => {
+            handler()
+          })
+        }
+      }
+    }
+
+    // 测试
+    let em = new EventEmitter()
+
+    em.$on('click', () => {
+      console.log('click-1.')
+    })
+
+    em.$on('click', () => {
+      console.log('click-2.')
+    })
+
+    em.$emit('click')
+
+  </script>
+
+</body>
+
+</html>

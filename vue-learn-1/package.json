@@ -1,0 +1,16 @@
+{
+  "name": "snabbdom-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/du-jianglong/snabbdom-demo.git",
+  "author": "du-jianglong <du-jianglong@foxmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4",
+    "snabbdom": "^2.1.0"
+  },
+  "scripts": {
+    "dev": "parcel index.html --open",
+    "build": "parcel build index.html"
+  }
+}

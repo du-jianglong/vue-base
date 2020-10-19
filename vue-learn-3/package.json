@@ -1,0 +1,18 @@
+{
+  "name": "vue-learn-3",
+  "version": "1.0.0",
+  "description": "```~\r 创建项目：\r **mkdir realworld-nuxtjs**\r **npm init -y**\r **npm i nuxt**\r ·配置启动脚本\r ·创建pages目录，配置初始页面\r ```",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nuxt"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "cookieparser": "^0.1.0",
+    "js-cookie": "^2.2.1",
+    "nuxt": "^2.14.7"
+  }
+}

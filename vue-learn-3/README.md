@@ -8,10 +8,12 @@
     4· 配置启动脚本：
         package.json ————> scripts
             "dev": "nuxt"
-    5· 创建 pages 目录，配置初始页面
-    6. 新建 nuxt.config.js 文件：处理 Nuxt.js 配置文件（自定义路由规则）
+    5· 创建 pages 目录，配置初始页面。
+    6. 根目录下新建 **nuxt.config.js** 文件：处理 Nuxt.js 配置文件（自定义路由规则）。
     7. 安装 axios：**npm i axios**
-    8. 新建 requests.js 文件，基于 axios 封装的请求模块
+    8. 根目录下新建 **utils/requests.js**，基于 axios 封装的请求模块。
+    9、根目录下新建 store：**store** 关于数据持久化。（需要安装：js-cookie、cookieparser）
+    10、根目录下新建 middleware：**middleware** 中间件，作用是：验证是否登录，根据返回结构重定向到相应页面。
 ```
 
 >开源学习项目（由多种技术实现）。

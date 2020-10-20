@@ -5,11 +5,10 @@
         <div class="container">
           <div class="row">
             <div class="col-xs-12 col-md-10 offset-md-1">
-              <img src="http://i.imgur.com/Qr71crq.jpg" class="user-img" />
-              <h4>Eric Simons</h4>
+              <img :src="myProfile.image" class="user-img" />
+              <h4>{{myProfile.username}}</h4>
               <p>
-                Cofounder @GoThinkster, lived in Aol's HQ for a few months,
-                kinda looks like Peeta from the Hunger Games
+                {{myProfile.bio || '你还没有写任何东西。'}}
               </p>
               <button class="btn btn-sm btn-outline-secondary action-btn">
                 <i class="ion-plus-round"></i>
@@ -84,13 +83,40 @@
 </template>
 
 <script>
+import { profiles } from "@/api/user";
+
 export default {
   // 在路由匹配组件之前会先执行中间件处理
   middleware: "authenticated",
   name: "UserProfile",
-  created() {
-    uid = this.$route.params.keyword
-    console.log(uid)
+  data() {
+    return {
+      myProfile: {},
+      errors: {},
+    };
+  },
+  async created() {
+    let _this = this
+    try {
+      await profiles(_this.$route.params.username).then(({ data }) => {
+        if (data.profile && typeof data.profile === "object") {
+          var jsonData = JSON.stringify(data.profile);
+          var result = JSON.parse(jsonData);
+          _this.myProfile = result;
+        }
+        console.log("获取个人资料成功：");
+        console.log(_this.myProfile.username);
+      });
+    } catch (error) {
+      if (error.response.data && error.response.data.errors) {
+        _this.errors = error.response.data.errors;
+      } else {
+        _this.errors = error.message;
+      }
+
+      console.log("获取个人资料失败：");
+      console.error(_this.errors);
+    }
   }
 };
 </script>

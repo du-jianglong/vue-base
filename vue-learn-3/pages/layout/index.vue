@@ -22,14 +22,14 @@
               </nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link
-                class="nav-link user-head"
-                to="/profile/1"
-              >
               <!-- <nuxt-link
                 class="nav-link user-head"
-                :to="{ name: 'profile', params: {keyword: user.id} }"
+                to="/profile/1"
               > -->
+              <nuxt-link
+                class="nav-link user-head"
+                :to="{ name: 'profile-username', params: {username: user.username} }"
+              >
                 <img :src="user.image" alt="" />
                 {{ user.username }}
               </nuxt-link>

@@ -8,7 +8,7 @@
               <img :src="myProfile.image" class="user-img" />
               <h4>{{myProfile.username}}</h4>
               <p>
-                {{myProfile.bio || '你还没有写任何东西。'}}
+                {{myProfile.bio || '你还没有写任何东西呢。'}}
               </p>
               <button class="btn btn-sm btn-outline-secondary action-btn">
                 <i class="ion-plus-round"></i>
@@ -104,8 +104,8 @@ export default {
           var result = JSON.parse(jsonData);
           _this.myProfile = result;
         }
-        console.log("获取个人资料成功：");
-        console.log(_this.myProfile.username);
+        // console.log("获取个人资料成功：");
+        // console.log(_this.myProfile.username);
       });
     } catch (error) {
       if (error.response.data && error.response.data.errors) {

@@ -26,6 +26,7 @@
 >
 >接口文档：**[https://github.com/gothinkster/realworld/tree/master/api](https://github.com/gothinkster/realworld/tree/master/api)**
 >
+
 ```~
 学习收获：
 1· 掌握使用 Nuxt.js 开发同构渲染应用
